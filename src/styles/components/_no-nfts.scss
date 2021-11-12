@@ -1,0 +1,71 @@
+.no-nfts {
+  padding: 60px 20px 100px;
+  background-color: $secondary-color;
+  color: $white;
+
+  &__data {
+    width: 1012px;
+    margin: auto;
+
+    @include for-laptop {
+      width: unset;
+    }
+  }
+
+  &__data-top {
+    display: flex;
+    gap: 90px;
+    align-items: center;
+
+    @include for-laptop {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+
+  &__title {
+    font-size: 50px;
+    line-height: 115%;
+    margin-bottom: 60px;
+    margin-top: 68px;
+  }
+
+  &__text {
+    font-size: 24px;
+    line-height: 115%;
+    margin-bottom: 60px;
+
+    &-purpure {
+      color: $purpure-color;
+    }
+  }
+
+  &__links {
+    display: flex;
+    gap: 18px;
+
+    @include for-phone {
+      flex-wrap: wrap;
+    }
+  }
+
+  &__information {
+    max-width: 500px;
+
+    @include for-phone {
+      max-width: unset;
+    }
+  }
+
+  &__img {
+    display: block;
+    width: 380px;
+    height: fit-content;
+  }
+
+  &__sold-out {
+    margin-top: 60px;
+    gap: 70px;
+    flex-direction: column;
+  }
+}

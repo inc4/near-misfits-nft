@@ -1,0 +1,48 @@
+//Utilites
+@import './utilities/variables';
+@import './utilities/base';
+@import './utilities/mixins';
+
+// Layout
+@import './layout/header';
+@import './layout/footer';
+
+// components
+@import './components/navigation';
+@import './components/social-links';
+@import './components/connect-wallet';
+@import './components/hero';
+@import './components/learn';
+@import './components/rarity';
+@import './components/rate-list';
+@import './components/rate-item';
+@import './components/nearkats-list';
+@import './components/nearkats-item';
+@import './components/generate';
+@import './components/roadmap';
+@import './components/faq';
+@import './components/calendar-btn';
+@import './components/loader';
+@import './components/nft-item';
+@import './components/nfts-list';
+@import './components/nft-item-info';
+@import './components/buy';
+@import './components/buy-more';
+@import './components/buy-more-btn';
+@import './components/number-buy';
+@import './components/price';
+@import './components/generate-block';
+@import './components/generate-sold-out';
+@import './components/generate-count-btn';
+@import './components/share-social-links';
+@import './components/shareable-link';
+@import './components/shareable-input';
+@import './components/shareable-circle';
+@import './components/save-btn';
+@import './components/no-nfts';
+
+//pages
+@import './pages/home';
+@import './pages/my-nfts';
+@import './pages/link-drop';
+@import './pages/reveal';

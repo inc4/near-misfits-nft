@@ -1,0 +1,55 @@
+.buy {
+  background-color: $secondary-color;
+  color: $white;
+  padding: 60px 20px;
+
+  &__data {
+    width: 1180px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 100px;
+
+    @include for-small-desktop {
+      width: unset;
+      margin: unset;
+    }
+
+    @include for-tablet {
+      gap: 70px;
+    }
+
+    > * {
+      width: 310px;
+    }
+  }
+
+  &__nft {
+    margin-left: 20px;
+  }
+
+  &__sold-out-wrapper {
+    display: flex;
+    gap: 100px;
+    justify-content: center;
+    width: fit-content !important;
+    margin: auto;
+    flex-wrap: wrap;
+  }
+
+  &__sold-out {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__image {
+    width: 400px;
+    height: auto;
+
+    @include for-phone {
+      width: 300px;
+    }
+  }
+}

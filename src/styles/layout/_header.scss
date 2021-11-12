@@ -1,0 +1,84 @@
+.header {
+  padding: 36px 120px;
+  max-width: 1455px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  @include for-small-desktop {
+    padding: 36px;
+    flex-wrap: wrap;
+  }
+
+  @include for-laptop {
+    flex-direction: column;
+  }
+
+  @include for-tablet {
+    padding: 20px;
+    gap: 20px;
+  }
+
+  &__navigation {
+    flex-grow: 2;
+    margin-right: 30px;
+  }
+
+  &__social {
+    margin-right: 56px;
+
+    @include for-small-desktop {
+      margin-right: 30px;
+    }
+
+    @include for-laptop {
+      margin-right: 0;
+    }
+  }
+
+  &__logo {
+    flex-grow: 1;
+    opacity: 0;
+  }
+
+  &__wallet {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    letter-spacing: 0.01em;
+    color: $purpure-color;
+    font-family: 'Manrope', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  &__wallet:hover {
+    .header__wallet-logout {
+      top: 25px;
+      opacity: 1;
+      transition: all 0.2s ease-in-out;
+    }
+  }
+
+  &__wallet-name {
+    position: relative;
+    cursor: pointer;
+  }
+
+  &__wallet-logout {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+    color: black;
+    font-weight: bold;
+    background-color: $white;
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 15px;
+    width: 50%;
+  }
+}

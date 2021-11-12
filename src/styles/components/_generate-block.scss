@@ -1,0 +1,105 @@
+.generate-block {
+  color: $light-color;
+  margin-bottom: 49px;
+  display: flex;
+  gap: 30px;
+  width: fit-content;
+  position: relative;
+
+  &__button {
+    max-width: 200px;
+  }
+
+  &__line {
+    height: 1px;
+    width: 350px;
+    left: 20px;
+    top: 50%;
+    position: absolute;
+    opacity: 0.5;
+    border-top: 3px dashed #c4c4c4;
+    z-index: -1;
+  }
+
+  &__vertical-line {
+    height: 80px;
+    width: 1px;
+    top: 50px;
+    left: 55px;
+    position: absolute;
+    opacity: 0.5;
+    border-left: 3px dashed #c4c4c4;
+    z-index: -1;
+  }
+
+  &__price {
+    display: flex;
+    position: absolute;
+    top: 130px;
+    left: 10px;
+  }
+
+  &__near {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 150%;
+    color: $purpure-color;
+    margin-top: 15px;
+  }
+
+  &__count {
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 150%;
+  }
+
+  &__message {
+    opacity: 1;
+    position: absolute;
+    top: -30px;
+    right: 15px;
+    padding: 10px;
+    background-color: $burgundy;
+    z-index: -1;
+    border-radius: 100px;
+    animation: 3s linear 1 normal forwards showMessage;
+  }
+
+  &__animation-hide {
+    opacity: 0;
+  }
+
+  &__animation-price {
+    animation: 0.3s linear 1 normal forwards showPrice;
+  }
+}
+
+@keyframes showMessage {
+  0% {
+    opacity: 0;
+    top: -30px;
+  }
+  20% {
+    opacity: 1;
+    top: -60px;
+  }
+  80% {
+    opacity: 1;
+    top: -60px;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes showPrice {
+  0% {
+    opacity: 0;
+    transform: rotate(360deg) scale(0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+  }
+}

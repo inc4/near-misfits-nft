@@ -1,0 +1,52 @@
+.faq {
+  margin-bottom: 55px;
+  position: relative;
+  font-family: 'Manrope', sans-serif;
+
+  &__wrapper {
+    padding-top: 250px;
+
+    @include for-tablet {
+      padding-top: 50px;
+    }
+  }
+
+  &__container {
+    padding-bottom: 200px;
+    position: relative;
+    z-index: 10;
+    width: 586px;
+    margin: auto;
+
+    @include for-tablet {
+      padding: 0 20px 100px;
+      width: 100%;
+    }
+  }
+
+  &__title {
+    font-size: 36px;
+    line-height: 115%;
+    color: $secondary-color;
+    margin-bottom: 40px;
+  }
+
+  &__list {
+    color: $common-color;
+    line-height: 150%;
+  }
+
+  &__item {
+    margin-bottom: 60px;
+
+    &-title {
+      font-weight: 600;
+      font-size: 24px;
+      margin-bottom: 14px;
+    }
+
+    &-team {
+      margin-bottom: 16px;
+    }
+  }
+}

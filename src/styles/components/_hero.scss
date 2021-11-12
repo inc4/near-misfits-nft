@@ -1,0 +1,140 @@
+.hero {
+  padding: 130px 0 259px;
+
+  @include for-tablet {
+    padding: 50px 0 100px;
+  }
+
+  &__container {
+    position: relative;
+    color: $common-color;
+  }
+
+  &__information {
+    width: 992px;
+    margin: auto;
+    position: relative;
+    padding-bottom: 46px;
+
+    @include for-laptop {
+      padding: 0 30px 46px;
+      width: 100%;
+    }
+
+    @include for-phone {
+      padding: 0 20px 155px;
+    }
+  }
+
+  &__title {
+    font-size: 50px;
+    line-height: 115%;
+    margin-bottom: 24px;
+
+    &_purpure {
+      color: $purpure-color;
+    }
+  }
+
+  &__text {
+    font-size: 24px;
+    line-height: 150%;
+    max-width: 475px;
+    margin-bottom: 14px;
+    color: $green-color;
+
+    @include for-phone {
+      max-width: unset;
+    }
+  }
+
+  &__calendar-btn {
+    margin-top: 30px;
+  }
+
+  &__image {
+    width: fit-content;
+    height: fit-content;
+    position: absolute;
+    z-index: 5;
+    right: -70px;
+    bottom: -80px;
+
+    @include for-laptop {
+      width: 300px;
+      height: auto;
+      right: -30px;
+    }
+
+    @include for-tablet {
+      width: 200px;
+      right: 0px;
+    }
+    @include for-phone {
+      width: 150px;
+    }
+  }
+
+  &__img {
+    width: fit-content;
+    height: fit-content;
+    position: absolute;
+    z-index: 5;
+    right: 0;
+    bottom: -80px;
+
+    @include for-laptop {
+      svg {
+        width: 300px;
+        height: auto;
+      }
+    }
+
+    @include for-tablet {
+      svg {
+        width: 200px;
+      }
+    }
+
+    @include for-phone {
+      svg {
+        width: 150px;
+      }
+    }
+  }
+
+  &__background {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+
+    &-ellipse {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-40%);
+      pointer-events: unset;
+    }
+
+    &-cloud1 {
+      position: absolute;
+      bottom: -16px;
+      left: 50%;
+      transform: translateX(-200px);
+    }
+
+    &-cloud2 {
+      position: absolute;
+      left: 50%;
+      bottom: 78px;
+      transform: translateX(-30px);
+    }
+
+    &-cloud3 {
+      position: absolute;
+      left: 50%;
+      bottom: 78px;
+      transform: translateX(380px);
+    }
+  }
+}
