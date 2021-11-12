@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import { ReactSVG } from 'react-svg';
 import twitter from '../../assets/images/share-social/twitter.svg';
 import linkedIn from '../../assets/images/share-social/linkedin.svg';
