@@ -10,7 +10,6 @@ const NearkatsListItem = ({ kat }) => (
       <p>#0123456789 </p>
       <ReactSVG src={kat.svgRarityIcon} />
     </div>
-    <ReactSVG src={kat.svgRate} />
   </li>
 );
 
