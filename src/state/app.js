@@ -3,7 +3,7 @@ import { initNear } from './near';
 
 const initialState = {
   app: {
-    soldOut: true,
+    soldOut: false,
     oneCount: 1,
     manyCount: 10,
     revealNearkats: JSON.parse(localStorage.getItem('revealNearkats')) || {},
