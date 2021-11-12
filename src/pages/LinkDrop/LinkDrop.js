@@ -49,13 +49,11 @@ const LinkDrop = () => {
   };
 
   const handleSaveBtn = () => {
-    console.log('Save: linkDropArray', linkDropArray);
     let testLinkDropArray = JSON.parse(
       localStorage.getItem('linkDropArray'),
     ).filter(({ accountId }) => accountId !== account.accountId);
-    console.log('testLinkDropArray = ', testLinkDropArray);
+
     testLinkDropArray = [...testLinkDropArray, ...linkDropArray];
-    console.log('testLinkDropArrayNEW!!!!! = ', testLinkDropArray);
 
     localStorage.setItem('linkDropArray', JSON.stringify(testLinkDropArray));
   };
