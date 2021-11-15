@@ -1,5 +1,5 @@
 .connect-wallet {
-  background: #ffffff;
+  background: $light-color;
   border: 2px solid $green-color;
   backdrop-filter: blur(32px);
   border-radius: 56px;
@@ -24,6 +24,22 @@
     min-width: 200px;
 
     &-name {
+      max-width: 500px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      @include for-tablet {
+        max-width: 400px;
+      }
+
+      @include for-phone {
+        max-width: 300px;
+      }
+
+      @include for-small-phone {
+        max-width: 200px;
+      }
+
       &::after {
         content: 'Log Out';
         display: block;
