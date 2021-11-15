@@ -32,13 +32,15 @@ const Generate = () => {
 
         <div className="generate__block">
           {soldOut ? <GenerateSoldOut /> : <GenerateBlock />}
-          <div>
+
+          <picture>
+            <source srcSet="./images/generate-background-2x.png 2x, ./images/generate-background.png 1x" />
             <img
               className="generate__img"
-              src="./images/generate-background-3.png"
+              src="./images/generate-background.png"
               alt="generate kats"
             />
-          </div>
+          </picture>
         </div>
       </div>
     </section>

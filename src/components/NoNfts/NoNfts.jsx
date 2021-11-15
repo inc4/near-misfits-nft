@@ -25,11 +25,14 @@ const NoNfts = ({ soldOut }) => {
             </p>
             <ShareSocialLinks className="no-nfts__links" color="burgundy" />
           </div>
-          <img
-            className="no-nfts__img"
-            src="./images/generate-background-3.png"
-            alt="sold out background"
-          />
+          <picture>
+            <source srcSet="./images/generate-background-2x.png 2x, ./images/generate-background.png 1x" />
+            <img
+              className="no-nfts__img"
+              src="./images/generate-background.png"
+              alt="no nft background"
+            />
+          </picture>
         </div>
         {soldOut ? <GenerateSoldOut className="no-nfts__sold-out" /> : <Buy />}
       </div>
