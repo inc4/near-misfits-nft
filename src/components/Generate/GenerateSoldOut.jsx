@@ -11,11 +11,14 @@ const GenerateSoldOut = ({ className }) => (
       rel="noopener noreferrer"
     >
       <p>Buy on Mintbase</p>
-      <img
-        src="./images/generate-mintbase.png"
-        alt="mintbase marketplace"
-        className="generate-sold-out__img"
-      ></img>
+      <picture>
+        <source srcSet="./images/generate-mintbase-2x.png 2x, ./images/generate-mintbase.png 1x" />
+        <img
+          src="./images/generate-mintbase.png"
+          alt="mintbase marketplace icon"
+          className="generate-sold-out__img"
+        ></img>
+      </picture>
     </a>
   </div>
 );
