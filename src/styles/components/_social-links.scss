@@ -4,6 +4,8 @@
 
   &__item {
     transition: all 0.2s ease-in-out;
+    width: 24px;
+    height: 24px;
 
     &:hover {
       cursor: pointer;

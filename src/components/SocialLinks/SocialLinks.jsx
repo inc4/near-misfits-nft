@@ -7,13 +7,14 @@ import socialTwitter from '../../assets/images/social-twitter.svg';
 const SocialLinks = ({ className }) => (
   <div className={`social-links ${className || ''}`}>
     <a href="https://www.mintbase.io" rel="noopener noreferrer" target="_blank">
-      <img
-        width="24"
-        height="24"
-        className="social-links__item"
-        src="./images/social-mintbase.png"
-        alt="mintbase"
-      />
+      <picture>
+        <source srcSet="./images/social-mintbase-2x.png 2x, ./images/social-mintbase.png 1x" />
+        <img
+          className="social-links__item"
+          src="./images/social-mintbase.png"
+          alt="mintbase"
+        />
+      </picture>
     </a>
     <a
       href="https://discord.com/invite/UY9Xf2k"
