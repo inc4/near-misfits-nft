@@ -12,7 +12,7 @@ import discord from '../../assets/images/share-social/discord.svg';
 
 const ShareSocialLinks = ({ className, color, text, link }) => {
   const colorIcon =
-    color === 'burgundy'
+    color === 'purpure'
       ? 'share-social-links__purpure'
       : 'share-social-links__blue';
 
@@ -108,7 +108,7 @@ ShareSocialLinks.propTypes = {
 
 ShareSocialLinks.defaultProps = {
   className: '',
-  color: 'burgundy',
+  color: 'blue',
   text: '',
   link: '',
 };

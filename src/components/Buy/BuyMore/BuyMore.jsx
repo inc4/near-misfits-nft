@@ -25,7 +25,9 @@ const BuyMore = ({ isLinkDrop }) => {
 
         {showMessage && (
           <div className="buy-more__message">
-            select {app.oneCount} or {app.manyCount} nearkats
+            {isLinkDrop
+              ? 'select 1 link drop'
+              : `select ${app.oneCount} or ${app.manyCount} misfits `}
           </div>
         )}
         {isLinkDrop && (

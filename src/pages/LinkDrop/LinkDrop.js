@@ -94,7 +94,7 @@ const LinkDrop = () => {
               </div>
 
               <ShareSocialLinks
-                color="purpure"
+                color="blue"
                 className="link-drop__share-links"
                 text={linkDropArray[activeIndex]?.text}
                 link={linkDropArray[activeIndex]?.link}

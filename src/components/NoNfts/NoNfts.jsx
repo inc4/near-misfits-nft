@@ -23,7 +23,7 @@ const NoNfts = ({ soldOut }) => {
             <p className="no-nfts__text">
               Buy your first <span className="no-nfts__text-purpure">NFT</span>
             </p>
-            <ShareSocialLinks className="no-nfts__links" color="burgundy" />
+            <ShareSocialLinks className="no-nfts__links" color="purpure" />
           </div>
           <picture>
             <source srcSet="./images/generate-background-2x.png 2x, ./images/generate-background.png 1x" />
