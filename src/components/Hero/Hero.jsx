@@ -1,7 +1,6 @@
 import React from 'react';
 import { ReactSVG } from 'react-svg';
 import CalendarBtn from './CalendarBtn';
-// import bigCat from '../../assets/images/hero-misfits-big.svg';
 import bgEllipse from '../../assets/images/hero-ellipse.svg';
 import bgCloud1 from '../../assets/images/hero-cloud1.svg';
 import bgCloud2 from '../../assets/images/hero-cloud2.svg';
@@ -26,12 +25,14 @@ const Hero = () => (
         </p>
         <p className="hero__text">Misfits Dropping Soon</p>
         <CalendarBtn className="hero__calendar-btn" />
-        <img
-          className="hero__image"
-          src="./images/hero-misfits-big.png"
-          alt="hello super"
-        />
-        {/* <ReactSVG className="hero__img" src={bigCat} /> */}
+        <picture>
+          <source srcSet="./images/misfits-big-2x.png 2x, ./images/misfits-big.png 1x" />
+          <img
+            className="hero__image"
+            src="./images/misfits-big.png"
+            alt="hello super"
+          />
+        </picture>
       </div>
     </div>
   </div>

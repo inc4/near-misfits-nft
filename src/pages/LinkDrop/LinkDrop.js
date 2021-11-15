@@ -100,7 +100,10 @@ const LinkDrop = () => {
                 link={linkDropArray[activeIndex]?.link}
               />
             </div>
-            <img cla src="/images/hero-misfits-big.png" alt="big misfits" />
+            <picture>
+              <source srcSet="./images/misfits-big-2x.png 2x, ./images/misfits-big.png 1x" />
+              <img cla src="/images/misfits-big.png" alt="big misfits" />
+            </picture>
           </div>
         </div>
       </div>

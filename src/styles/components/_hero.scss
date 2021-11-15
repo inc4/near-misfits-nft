@@ -53,16 +53,15 @@
   }
 
   &__image {
-    width: fit-content;
-    height: fit-content;
+    width: 325px;
+    height: auto;
     position: absolute;
     z-index: 5;
     right: -70px;
-    bottom: -80px;
+    bottom: -150px;
 
     @include for-laptop {
       width: 300px;
-      height: auto;
       right: -30px;
     }
 
@@ -72,6 +71,7 @@
     }
     @include for-phone {
       width: 150px;
+      bottom: -110px;
     }
   }
 
