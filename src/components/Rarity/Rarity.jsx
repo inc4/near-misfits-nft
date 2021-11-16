@@ -1,9 +1,9 @@
 import React from 'react';
 import { ReactSVG } from 'react-svg';
-import NearkatsList from '../NearkatsList';
 import RateList from '../RateList';
 import rarityData from './rarityData';
 import gradient from '../../assets/images/rarity-background-gradient.svg';
+import RarityList from './RarityList';
 
 const Rarity = () => (
   <section id="rarity" className="rarity">
@@ -28,7 +28,8 @@ const Rarity = () => (
             soon…
           </p>
         </div>
-        <NearkatsList kats={rarityData.kats} />
+
+        <RarityList list={rarityData.kats} />
       </div>
     </div>
   </section>
