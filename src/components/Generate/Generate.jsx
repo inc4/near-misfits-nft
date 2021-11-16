@@ -36,9 +36,11 @@ const Generate = () => {
           <picture>
             <source srcSet="./images/generate-background-2x.webp 2x, ./images/generate-background.webp 1x" />
             <img
-              className="generate__img"
+              className={`generate__img ${
+                soldOut ? 'generate__img-sold-out' : ''
+              }`}
               src="./images/generate-background.png"
-              alt="generate kats"
+              alt="generate misfits"
             />
           </picture>
         </div>
