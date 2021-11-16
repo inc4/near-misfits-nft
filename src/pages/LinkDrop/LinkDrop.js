@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React, { useEffect, useContext, useState } from 'react';
 import { useHistory } from 'react-router';
 import { ReactSVG } from 'react-svg';
@@ -101,7 +100,7 @@ const LinkDrop = () => {
               />
             </div>
             <picture>
-              <source srcSet="./images/misfits-big-2x.png 2x, ./images/misfits-big.png 1x" />
+              <source srcSet="./images/misfits-big-2x.webp 2x, ./images/misfits-big.webp 1x" />
               <img cla src="/images/misfits-big.png" alt="big misfits" />
             </picture>
           </div>
