@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React, { memo } from 'react';
 import { useHistory } from 'react-router-dom';
 import BuyMoreBtn from '../BuyMoreBtn';
@@ -63,7 +62,7 @@ const GenerateBlock = () => {
       />
       {showMessage && (
         <div className="generate-block__message">
-          select {app.oneCount} or {app.manyCount} nearkats
+          select {app.oneCount} or {app.manyCount} misfits
         </div>
       )}
     </div>
