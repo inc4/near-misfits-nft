@@ -6,7 +6,7 @@
     flex-wrap: wrap;
 
     @include for-phone {
-      gap: 10px;
+      gap: 20px;
     }
   }
 

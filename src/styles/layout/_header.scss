@@ -24,6 +24,10 @@
   &__navigation {
     flex-grow: 2;
     margin-right: 30px;
+
+    @include for-tablet {
+      margin-right: 0;
+    }
   }
 
   &__social {

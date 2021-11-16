@@ -5,6 +5,10 @@
     padding: 50px 0 100px;
   }
 
+  @include for-phone {
+    padding-top: 20px;
+  }
+
   &__container {
     position: relative;
     color: $common-color;
@@ -31,6 +35,10 @@
     line-height: 115%;
     margin-bottom: 24px;
 
+    @include for-phone {
+      font-size: 40px;
+    }
+
     &_purpure {
       color: $purpure-color;
     }
@@ -45,6 +53,7 @@
 
     @include for-phone {
       max-width: unset;
+      font-size: 20px;
     }
   }
 

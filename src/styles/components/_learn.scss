@@ -2,9 +2,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 130px 0 170px;
+  gap: 50px;
+  padding: 130px 30px 170px;
   color: $secondary-color;
-  width: 1118px;
+  width: 1018px;
   margin: auto;
 
   @include for-laptop {
@@ -37,27 +38,15 @@
 
   &__picture {
     position: relative;
-    pointer-events: none;
-    display: grid;
-    grid-template-columns: auto 1fr;
-    align-items: center;
-    justify-items: center;
 
-    @include for-phone {
-      height: fit-content;
+    &-image {
+      max-width: 530px;
+      width: 100%;
+
+      @include for-tablet {
+        max-width: 400px;
+      }
     }
-  }
-
-  &__zombie-1 {
-    width: 137px;
-    position: relative;
-    left: -20px;
-  }
-
-  &__zombie-3 {
-    position: relative;
-    left: 20px;
-    top: -30px;
   }
 
   &__img {

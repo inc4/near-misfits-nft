@@ -34,6 +34,7 @@
 
       @include for-phone {
         max-width: 300px;
+        padding: 13px;
       }
 
       @include for-small-phone {
