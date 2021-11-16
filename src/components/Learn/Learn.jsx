@@ -1,16 +1,11 @@
 import React from 'react';
-import { ReactSVG } from 'react-svg';
-import ellipse from '../../assets/images/leran-background-ellipse.svg';
-import zombie1 from '../../assets/images/learn-zombie-1.svg';
-import zombie2 from '../../assets/images/learn-zombie-2.svg';
-import zombie3 from '../../assets/images/learn-zombie-3.svg';
-import zombie4 from '../../assets/images/learn-zombie-4.svg';
+import { ReactComponent as SvgEllipse } from '../../assets/images/leran-background-ellipse.svg';
 
 const Learn = () => (
   <section id="learn" className="learn">
     <div className="learn__information">
       <h2 className="learn__title">
-        Introducing <br /> NEAR Misfits (Gen 0)
+        Introducing <br /> NEAR Misfits (Gen&nbsp;0)
       </h2>
       <p className="learn__text">
         10,000 brave souls set out into the vast unknown to explore the
@@ -25,11 +20,16 @@ const Learn = () => (
       </p>
     </div>
     <div className="learn__picture">
-      <ReactSVG className="learn__zombie-1" src={zombie1} />
-      <ReactSVG className="learn__zombie-2" src={zombie2} />
-      <ReactSVG className="learn__zombie-3" src={zombie3} />
-      <ReactSVG className="learn__zombie-4" src={zombie4} />
-      <ReactSVG className="learn__background-ellipse" src={ellipse} />
+      <picture>
+        <source srcSet="./images/learn-zombie-2x.webp 2x, ./images/learn-zombie.webp 1x" />
+        <img
+          src="./images/learn-zombie.png"
+          alt="zombie"
+          className="learn__picture-image"
+        />
+      </picture>
+
+      <SvgEllipse className="learn__background-ellipse" />
     </div>
   </section>
 );
