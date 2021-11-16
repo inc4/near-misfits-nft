@@ -6,13 +6,30 @@
   width: fit-content;
   position: relative;
 
+  @include for-phone {
+    gap: 20px;
+  }
+
+  @include for-small-phone {
+    width: 100%;
+    justify-content: space-between;
+  }
+
   &__button {
     max-width: 200px;
+
+    @include for-phone {
+      max-width: 150px;
+    }
+
+    @include for-small-phone {
+      padding: 13px;
+    }
   }
 
   &__line {
     height: 1px;
-    width: 350px;
+    width: 80%;
     left: 20px;
     top: 50%;
     position: absolute;

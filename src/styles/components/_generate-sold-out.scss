@@ -1,12 +1,14 @@
 .generate-sold-out {
   display: flex;
-  flex-wrap: wrap;
   gap: 44px;
   align-items: center;
   margin-bottom: 70px;
+  flex-wrap: wrap;
+  justify-content: center;
 
   &__link {
     display: flex;
+    align-items: center;
     gap: 10px;
     padding: 24px 47px;
     background-color: $purpure-color;
@@ -25,6 +27,13 @@
 
     @include for-phone {
       padding: 14px 30px;
+    }
+
+    @include for-small-phone {
+      font-weight: 600;
+      font-size: 16px;
+
+      padding: 14px 20px;
     }
   }
 
