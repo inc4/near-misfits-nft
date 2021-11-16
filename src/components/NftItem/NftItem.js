@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import { ReactSVG } from 'react-svg';
 import PropTypes from 'prop-types';
 import NftItemInfo from '../NftItemInfo';
-import revealIcon from '../../assets/images/reveal.svg';
 import rarity from '../../assets/images/rarity-common.svg';
 import fakeNft from '../../assets/images/fake-nft.svg';
 
@@ -42,8 +41,15 @@ const NftItem = ({ item, onClick, isHide, urlIpfs }) => {
         </>
       ) : (
         <li className="reveal__item" onClick={handleClick}>
-          <div className="reveal__image">
-            <ReactSVG className="reveal__icon" src={revealIcon} />
+          <div className="reveal__top">
+            <picture>
+              <source srcSet="./images/reveal-2x.webp 2x, ./images/reveal.webp 1x" />
+              <img
+                className="reveal__image"
+                src="./images/reveal.png"
+                alt="reveal"
+              />
+            </picture>
 
             <div className="reveal__question-sign">
               ?<span className="reveal__question-sign-big">?</span>?
