@@ -29,7 +29,7 @@ const Rarity = () => (
           </p>
         </div>
 
-        <RarityList list={rarityData.kats} />
+        <RarityList list={rarityData.misfits} />
       </div>
     </div>
   </section>
