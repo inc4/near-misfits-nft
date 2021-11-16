@@ -8,7 +8,7 @@ const SocialLinks = ({ className }) => (
   <div className={`social-links ${className || ''}`}>
     <a href="https://www.mintbase.io" rel="noopener noreferrer" target="_blank">
       <picture>
-        <source srcSet="./images/social-mintbase-2x.png 2x, ./images/social-mintbase.png 1x" />
+        <source srcSet="./images/social-mintbase-2x.webp 2x, ./images/social-mintbase.webp 1x" />
         <img
           className="social-links__item"
           src="./images/social-mintbase.png"

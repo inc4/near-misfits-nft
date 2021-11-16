@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import { useHistory } from 'react-router-dom';
 import BuyMoreBtn from '../BuyMoreBtn';
 import BuyMore from './BuyMore';
 import GenerateSoldOut from '../Generate/GenerateSoldOut';
@@ -26,7 +25,7 @@ const Buy = ({ soldOut }) => {
         ) : (
           <div className="buy__sold-out-wrapper">
             <picture>
-              <source srcSet="./images/generate-background-2x.png 2x, ./images/generate-background.png 1x" />
+              <source srcSet="./images/generate-background-2x.webp 2x, ./images/generate-background.webp 1x" />
               <img
                 className="buy__image"
                 src="./images/generate-background.png"

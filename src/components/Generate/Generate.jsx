@@ -34,7 +34,7 @@ const Generate = () => {
           {soldOut ? <GenerateSoldOut /> : <GenerateBlock />}
 
           <picture>
-            <source srcSet="./images/generate-background-2x.png 2x, ./images/generate-background.png 1x" />
+            <source srcSet="./images/generate-background-2x.webp 2x, ./images/generate-background.webp 1x" />
             <img
               className="generate__img"
               src="./images/generate-background.png"

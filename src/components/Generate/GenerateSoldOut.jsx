@@ -12,7 +12,7 @@ const GenerateSoldOut = ({ className }) => (
     >
       <p>Buy on Mintbase</p>
       <picture>
-        <source srcSet="./images/generate-mintbase-2x.png 2x, ./images/generate-mintbase.png 1x" />
+        <source srcSet="./images/generate-mintbase-2x.webp 2x, ./images/generate-mintbase.webp 1x" />
         <img
           src="./images/generate-mintbase.png"
           alt="mintbase marketplace icon"
