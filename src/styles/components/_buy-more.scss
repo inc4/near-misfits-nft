@@ -88,6 +88,11 @@
     background-color: $secondary-color;
   }
 
+  &__count {
+    width: 78px !important;
+    height: 78px !important;
+  }
+
   &__message {
     opacity: 1;
     position: absolute;

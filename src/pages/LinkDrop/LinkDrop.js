@@ -79,12 +79,14 @@ const LinkDrop = () => {
                       onClick={handleCircleClick}
                       index={index}
                     />
-                    <ShareableLink link={item.link} />
-                    <ShareableInput
-                      text={item.text}
-                      index={index}
-                      onChange={handleChange}
-                    />
+                    <div className="link-drop__inputs">
+                      <ShareableLink link={item.link} />
+                      <ShareableInput
+                        text={item.text}
+                        index={index}
+                        onChange={handleChange}
+                      />
+                    </div>
                   </li>
                 ))}
               </ul>
@@ -101,7 +103,11 @@ const LinkDrop = () => {
             </div>
             <picture>
               <source srcSet="./images/misfits-big-2x.webp 2x, ./images/misfits-big.webp 1x" />
-              <img cla src="/images/misfits-big.png" alt="big misfits" />
+              <img
+                className="link-drop__img"
+                src="/images/misfits-big.png"
+                alt="big misfits"
+              />
             </picture>
           </div>
         </div>

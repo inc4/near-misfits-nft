@@ -5,7 +5,6 @@ import { ReactSVG } from 'react-svg';
 import PropTypes from 'prop-types';
 import NftItemInfo from '../NftItemInfo';
 import rarity from '../../assets/images/rarity-common.svg';
-import fakeNft from '../../assets/images/fake-nft.svg';
 
 const NftItem = ({ item, onClick, isHide, urlIpfs }) => {
   const [reveal, setReveal] = useState(isHide);
@@ -19,15 +18,11 @@ const NftItem = ({ item, onClick, isHide, urlIpfs }) => {
     <div className="nft-item">
       {reveal ? (
         <>
-          {item.title % 2 ? (
-            <img
-              className="nft-item__img"
-              src={`${urlIpfs}/${item.media}`}
-              alt="nearkat"
-            />
-          ) : (
-            <ReactSVG src={fakeNft} />
-          )}
+          <img
+            className="nft-item__img"
+            src={`${urlIpfs}/${item.media}`}
+            alt="nearkat"
+          />
 
           <div className="nft-item__footer">
             <p className="nft-item__hash"># {item?.title?.padStart(5, '0')}</p>

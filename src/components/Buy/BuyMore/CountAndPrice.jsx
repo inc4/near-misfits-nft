@@ -16,6 +16,7 @@ const CountAndPrice = ({
         count={currentCount}
         onClick={() => handleNumberClick(currentCount)}
         isActive={activeCount === currentCount}
+        className="buy-more__count"
       />
     </div>
     <Price

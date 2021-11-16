@@ -11,7 +11,7 @@ const SaveBtn = ({ onClick }) => {
   };
   return (
     <button className="save-btn" type="button" onClick={handleClick}>
-      Saved
+      Save
       <p className={`save-btn__saved ${animation}`}>saved</p>
     </button>
   );

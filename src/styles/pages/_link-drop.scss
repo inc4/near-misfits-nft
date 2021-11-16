@@ -26,6 +26,14 @@
     margin: auto;
     width: 1000px;
     padding: 60px 20px 60px;
+
+    @include for-laptop {
+      width: 100%;
+    }
+
+    @include for-tablet {
+      overflow-x: auto;
+    }
   }
 
   &__header {
@@ -50,6 +58,30 @@
     flex-direction: column;
     gap: 11px;
     margin-top: 30px;
+    position: relative;
+
+    &::before {
+      content: 'Shareable links';
+      position: absolute;
+      top: -20px;
+      left: 35px;
+      font-size: 10px;
+      color: #3f4246;
+    }
+
+    &::after {
+      content: 'Who did I share this link with?';
+      position: absolute;
+      top: -20px;
+      left: 355px;
+      font-size: 10px;
+      color: #3f4246;
+    }
+  }
+
+  &__inputs {
+    display: flex;
+    gap: 20px;
   }
 
   &__item {
@@ -74,8 +106,18 @@
     margin-bottom: 20px;
   }
 
+  &__img {
+    @include for-tablet {
+      display: none;
+    }
+  }
+
   &__share-links {
     display: flex;
     gap: 18px;
+
+    @include for-phone {
+      gap: 10px;
+    }
   }
 }
