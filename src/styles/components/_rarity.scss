@@ -16,6 +16,10 @@
     width: 320px;
     color: $secondary-color;
 
+    @include for-phone {
+      text-align: center;
+    }
+
     @include for-small-phone {
       width: unset;
     }
