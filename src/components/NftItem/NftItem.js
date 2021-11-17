@@ -6,8 +6,8 @@ import PropTypes from 'prop-types';
 import NftItemInfo from '../NftItemInfo';
 import rarity from '../../assets/images/rarity-common.svg';
 
-const NftItem = ({ item, onClick, isHide, urlIpfs }) => {
-  const [reveal, setReveal] = useState(isHide);
+const NftItem = ({ item, onClick, isReveal, urlIpfs }) => {
+  const [reveal, setReveal] = useState(isReveal);
 
   const handleClick = () => {
     setReveal(true);
@@ -21,7 +21,7 @@ const NftItem = ({ item, onClick, isHide, urlIpfs }) => {
           <img
             className="nft-item__img"
             src={`${urlIpfs}/${item.media}`}
-            alt="nearkat"
+            alt="misfit"
           />
 
           <div className="nft-item__footer">
@@ -64,7 +64,7 @@ const NftItem = ({ item, onClick, isHide, urlIpfs }) => {
 NftItem.propTypes = {
   item: PropTypes.object,
   onClick: PropTypes.func,
-  isHide: PropTypes.bool,
+  isReveal: PropTypes.bool,
   urlIpfs: PropTypes.string,
 };
 
