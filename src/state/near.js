@@ -95,14 +95,14 @@ export const initNear =
 
         await update('', { near, wallet, account, contract, price });
 
-        const nearkatsArray = await contract.nft_tokens_for_owner({
+        const misfitsArray = await contract.nft_tokens_for_owner({
           account_id: account.accountId,
         });
 
         // take url for IPFS where data stored
         const { base_uri: urlIpfs } = await contract.nft_metadata();
 
-        // update state with nearkats and url for IPFS
+        // update state with misfits and url for IPFS
         const state = getState();
 
         // Updates link object if used or missing in contract
@@ -130,7 +130,7 @@ export const initNear =
         );
 
         // state.app.linkDropArray = links.filter(link => !link.isUsed);
-        const app = { ...state.app, nearkatsArray, urlIpfs, linkDropArray };
+        const app = { ...state.app, misfitsArray, urlIpfs, linkDropArray };
 
         await update('', { app });
         console.log('state:', getState());

@@ -6,20 +6,20 @@ const NftList = () => {
   const { state, update } = useContext(appStore);
   const { app } = state;
 
-  const handleClick = (revealNearkats) => {
-    const newRevealNearkats = { ...app.revealNearkats, ...revealNearkats };
+  const handleClick = (revealMisfits) => {
+    const newRevealMisfits = { ...app.revealMisfits, ...revealMisfits };
 
-    update('app', { revealNearkats: newRevealNearkats });
-    localStorage.setItem('revealNearkats', JSON.stringify(newRevealNearkats));
+    update('app', { revealMisfits: newRevealMisfits });
+    localStorage.setItem('revealMisfits', JSON.stringify(newRevealMisfits));
   };
 
   return (
     <div className="nfts-list">
-      {app.nearkatsArray.map((item) => (
+      {app.misfitsArray.map((item) => (
         <NftItem
           key={item.token_id}
           item={item.metadata}
-          isHide={app.revealNearkats[item.token_id]}
+          isReveal={app.revealMisfits[item.token_id]}
           urlIpfs={app.urlIpfs}
           onClick={handleClick}
         />
