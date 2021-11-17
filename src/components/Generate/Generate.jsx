@@ -2,11 +2,14 @@ import React, { useContext } from 'react';
 import GenerateSoldOut from './GenerateSoldOut';
 import GenerateBlock from './GenerateBlock';
 import { appStore } from '../../state/app';
+import useBuy from '../../hooks/useBuy';
 
 const Generate = () => {
   const { state } = useContext(appStore);
   const { soldOut } = state.app;
   const { oneNFT } = state.price;
+
+  const { formatPrice } = useBuy();
 
   return (
     <section className="generate" id="generate">
@@ -26,7 +29,8 @@ const Generate = () => {
           </p>
           <p className="generate__text-big">Alright, how much?</p>
           <p className="generate__text">
-            NEAR Misfits are priced at a flat rate of {oneNFT} NEAR.
+            NEAR Misfits are priced at a flat rate of {formatPrice(oneNFT)}{' '}
+            NEAR.
           </p>
         </div>
 
