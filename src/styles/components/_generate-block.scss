@@ -5,6 +5,7 @@
   gap: 30px;
   width: fit-content;
   position: relative;
+  scroll-margin-block-start: 50px;
 
   @include for-phone {
     gap: 20px;
