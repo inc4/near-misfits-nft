@@ -46,7 +46,7 @@ const NftItemInfo = ({ className, item, urlIpfs }) => {
         />
       </div>
       <div className="nft-item-info__stats">
-        <p>repo : {info.repo}</p>
+        <p>repo : {info?.repo || 'no data'}</p>
       </div>
     </div>
   );
