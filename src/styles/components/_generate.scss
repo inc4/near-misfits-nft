@@ -53,19 +53,23 @@
 
   &__img {
     width: 450px;
-    margin-right: 30px;
-    margin-left: 100px;
+    margin: 25px 30px 0 100px;
 
     @include for-laptop {
       width: 350px;
       margin-right: 0;
     }
 
+    @include for-tablet {
+      margin-top: 60px;
+    }
     @include for-phone {
       width: 100%;
       margin-left: 0;
       padding-left: 100px;
+      margin-top: 90px;
     }
+
     &-sold-out {
       @include for-tablet {
         padding-left: 0;
