@@ -1,13 +1,10 @@
 import React, { memo } from 'react';
-import { useHistory } from 'react-router-dom';
 import BuyMoreBtn from '../BuyMoreBtn';
 import GenerateCountBtn from '../GenerateCountBtn';
 import useBuy from '../../hooks/useBuy';
 import useMintNft from '../../hooks/useMintNft';
 
 const GenerateBlock = () => {
-  const history = useHistory();
-
   const { mintNft } = useMintNft();
 
   const {
@@ -24,18 +21,17 @@ const GenerateBlock = () => {
 
   const handleClick = () => {
     if (!wallet.signedIn) {
-      const successUrl = `${window.location.origin}/#generate`;
+      const successUrl = `${window.location.origin}/#generate-block`;
       wallet.signIn(successUrl);
     } else if (!count) {
       setShowMessage(true);
     } else {
-      history.push('/my-nfts');
       mintNft(count);
     }
   };
 
-  return wallet ? (
-    <div className="generate-block">
+  return (
+    <div id="generate-block" className="generate-block">
       <div className="generate-block__line"></div>
       <div className="generate-block__vertical-line "></div>
       <div className="generate-block__price ">
@@ -69,8 +65,6 @@ const GenerateBlock = () => {
         </div>
       )}
     </div>
-  ) : (
-    <></>
   );
 };
 export default memo(GenerateBlock);
