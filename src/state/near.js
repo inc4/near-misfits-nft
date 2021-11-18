@@ -49,7 +49,7 @@ export const initNear =
         update('', { account: null });
         localStorage.removeItem('undefined_wallet_auth_key');
         wallet.signedIn = wallet.isSignedIn();
-        // new nearAPI.keyStores.BrowserLocalStorageKeyStore().clear()
+        new nearAPI.keyStores.BrowserLocalStorageKeyStore().clear();
       };
 
       wallet.signedIn = wallet.isSignedIn();
