@@ -5,6 +5,7 @@ import { ReactSVG } from 'react-svg';
 import PropTypes from 'prop-types';
 import NftItemInfo from '../NftItemInfo';
 import rarity from '../../assets/images/rarity-common.svg';
+import Reveal from '../../pages/MyNFTS/Reveal';
 
 const NftItem = ({ item, onClick, isReveal, urlIpfs }) => {
   const [reveal, setReveal] = useState(isReveal);
@@ -17,7 +18,7 @@ const NftItem = ({ item, onClick, isReveal, urlIpfs }) => {
   return (
     <div className="nft-item">
       {reveal ? (
-        <>
+        <div>
           <img
             className="nft-item__img"
             src={`${urlIpfs}/${item.media}`}
@@ -28,34 +29,15 @@ const NftItem = ({ item, onClick, isReveal, urlIpfs }) => {
             <p className="nft-item__hash"># {item?.title?.padStart(5, '0')}</p>
             <ReactSVG src={item.rarity || rarity} />
           </div>
+
           <NftItemInfo
             className="nft-item__info"
             item={item}
             urlIpfs={urlIpfs}
           />
-        </>
+        </div>
       ) : (
-        <li className="reveal__item" onClick={handleClick}>
-          <div className="reveal__top">
-            <picture>
-              <source srcSet="./images/reveal-2x.webp 2x, ./images/reveal.webp 1x" />
-              <img
-                className="reveal__image"
-                src="./images/reveal.png"
-                alt="reveal"
-              />
-            </picture>
-
-            <div className="reveal__question-sign">
-              ?<span className="reveal__question-sign-big">?</span>?
-            </div>
-            <div className="reveal__text-hover">Reveal</div>
-          </div>
-          <div className="reveal__title">
-            <span># {item?.title?.padStart(5, '0')}</span>
-            <div className="reveal__question-grey">?</div>
-          </div>
-        </li>
+        <Reveal title={item?.title} handleClick={handleClick} />
       )}
     </div>
   );

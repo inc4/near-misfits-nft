@@ -20,12 +20,14 @@ const NftItemInfo = ({ className, item, urlIpfs }) => {
   }, []);
 
   useEffect(() => {
+    console.log('show:', item?.title);
     const { right } = nftInfo?.current?.getBoundingClientRect();
 
     if (right > window.innerWidth) {
-      nftInfo.current.style.transform = 'translateX(-100%)';
+      const width = window.innerWidth;
+      nftInfo.current.style.transform = `translateX(-${right - width + 50}px)`;
     }
-  }, []);
+  });
 
   return (
     <div ref={nftInfo} className={`nft-item-info  ${className || ''}`}>
