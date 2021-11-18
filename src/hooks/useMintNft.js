@@ -17,11 +17,10 @@ const useMintNft = () => {
         callbackUrl,
       });
     } else {
-      const priceOfManyNfts = await contract.total_cost({ num: count });
       contract.nft_mint_many({
         args: { num: count },
         gas: GAS,
-        amount: priceOfManyNfts,
+        amount: price.tenTokenCost,
         callbackUrl,
       });
     }
