@@ -1,5 +1,19 @@
 .my-nfts {
   background: rgba(226, 245, 255, 0.5);
+  position: relative;
+  overflow: hidden;
+
+  &__background {
+    position: absolute;
+    z-index: -1;
+    left: 50%;
+    top: -150px;
+    transform: translateX(-50%);
+
+    svg {
+      width: 1200px;
+    }
+  }
   &__data {
     padding: 60px 20px;
     width: 1012px;
