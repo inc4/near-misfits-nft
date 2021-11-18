@@ -42,7 +42,8 @@ const useBuy = (isLinkDrop) => {
       .split('')
       .forEach((item, index, arr) => {
         if (item === '.') {
-          formatedPrice = arr.slice(0, index + 2).join('');
+          const endIndex = index + 2 >= arr.length ? index + 2 : index + 3;
+          formatedPrice = arr.slice(0, endIndex).join('');
         }
       });
 
