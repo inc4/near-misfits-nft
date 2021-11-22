@@ -55,7 +55,7 @@ const LinkDrop = () => {
       localStorage.getItem('linkDropArray'),
     ).filter(({ accountId }) => accountId !== account?.accountId);
 
-    testLinkDropArray = [...testLinkDropArray, ...linkDropArray];
+    testLinkDropArray = [...testLinkDropArray, ...updatedLinkDropArray];
 
     localStorage.setItem('linkDropArray', JSON.stringify(testLinkDropArray));
   };
