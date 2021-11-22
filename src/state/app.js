@@ -10,6 +10,7 @@ const initialState = {
     misfitsArray: [],
     linkDropArray: [],
     urlIpfs: '',
+    locale: navigator.language,
   },
   near: {
     initialized: false,

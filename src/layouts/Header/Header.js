@@ -4,6 +4,7 @@ import Navigation from '../../components/Navigation';
 import SocialLinks from '../../components/SocialLinks';
 import ConnectWalletBtn from '../../components/ConnectWalletBtn';
 import Loader from '../../components/Loader/Loader';
+import Languages from '../../components/Languages';
 
 const Header = () => {
   const { state } = useContext(appStore);
@@ -25,6 +26,7 @@ const Header = () => {
       ) : (
         <ConnectWalletBtn handleClick={() => wallet.signIn()} />
       )}
+      <Languages />
     </header>
   );
 };
