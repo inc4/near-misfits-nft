@@ -6,35 +6,35 @@
   .addeventatc_icon {
     display: none;
   }
+  display: block;
+  width: fit-content;
+  margin-top: 40px;
+  font-family: $common-font;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 140%;
+  text-align: center;
+  letter-spacing: 0.01em;
+  color: $purpure-color !important;
+  padding: 18px 40px;
+  text-align: center;
+  background: $light-color;
+  border: 2px solid $purpure-color;
+  border-radius: 56px;
+  transition: all 0.3s ease-in-out;
 
-  &.addeventatc {
-    font-family: $common-font;
-    font-weight: bold;
-    font-size: 16px;
-    line-height: 140%;
-    text-align: center;
-    letter-spacing: 0.01em;
-    color: $purpure-color !important;
-    padding: 18px 40px;
-    text-align: center;
+  @include for-phone {
+    padding: 13px 20px;
+  }
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 10px 4px rgba(107, 110, 249, 0.2) !important;
     background: $light-color;
-    border: 2px solid $purpure-color;
-    border-radius: 56px;
-    transition: all 0.3s ease-in-out;
+    font-size: 16px;
+  }
 
-    @include for-phone {
-      padding: 13px 20px;
-    }
-
-    &:hover {
-      cursor: pointer;
-      box-shadow: 0px 0px 10px 4px rgba(107, 110, 249, 0.2) !important;
-      background: $light-color;
-      font-size: 16px;
-    }
-
-    &:active {
-      border-width: 2px;
-    }
+  &:active {
+    border-width: 2px;
   }
 }
