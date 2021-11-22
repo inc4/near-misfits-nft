@@ -14,8 +14,10 @@ const Layout = ({ children }) => {
 
     setTimeout(() => {
       const elem = document.querySelector(hash);
+      const { top } = elem?.getBoundingClientRect();
 
-      elem?.scrollIntoView({
+      window.scrollTo({
+        top,
         behavior: 'smooth',
       });
     }, 100);
