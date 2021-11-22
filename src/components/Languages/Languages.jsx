@@ -1,10 +1,9 @@
-/* eslint-disable no-console */
 import React, { useContext, useState } from 'react';
 import { appStore } from '../../state/app';
 
 const Languages = () => {
-  const { update } = useContext(appStore);
-  const [value, setValue] = useState('en');
+  const { update, state } = useContext(appStore);
+  const [value, setValue] = useState(state.app.locale);
 
   const handleChange = (e) => {
     setValue(e.target.value);

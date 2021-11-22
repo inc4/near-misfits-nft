@@ -1,4 +1,5 @@
-import { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { FormattedMessage } from 'react-intl';
 import useMintNft from './useMintNft';
 import useLinkDrop from './useLinkDrop';
 import { appStore } from '../state/app';
@@ -9,7 +10,14 @@ const useBuy = (isLinkDrop) => {
   const { mintNft } = useMintNft();
   const { createLinkDrop } = useLinkDrop();
 
-  const text = isLinkDrop ? 'Generate gift links' : 'Buy more';
+  const text = isLinkDrop ? (
+    <FormattedMessage
+      id="buy.giftLinkButton"
+      defaultMessage="Generate gift links"
+    />
+  ) : (
+    <FormattedMessage id="buy.buyMoreButton" defaultMessage="Buy more" />
+  );
 
   const [count, setCount] = useState();
   const [showMessage, setShowMessage] = useState(false);

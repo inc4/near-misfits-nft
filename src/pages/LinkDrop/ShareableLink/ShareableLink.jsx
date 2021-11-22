@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { FormattedMessage } from 'react-intl';
 import { ReactSVG } from 'react-svg';
 import useCopyToClipboard from '../../../hooks/useCopyToClipboard';
 import copyIcon from '../../../assets/images/copy-icon.svg';
@@ -21,7 +22,9 @@ const ShareableLink = ({ link }) => {
     >
       <p className="shareable-link__text">{link} </p>
       <ReactSVG className="shareable-link__icon" src={copyIcon} />
-      <p className={`shareable-link__copied ${animation}`}>copied</p>
+      <p className={`shareable-link__copied ${animation}`}>
+        <FormattedMessage id="linkDrop.copyText" defaultMessage="copied" />
+      </p>
     </button>
   );
 };

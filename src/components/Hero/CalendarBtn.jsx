@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { FormattedMessage } from 'react-intl';
 
 const CalendarBtn = ({ className }) => (
   <a
@@ -7,7 +8,7 @@ const CalendarBtn = ({ className }) => (
     title="Add to Calendar"
     className={`calendar-btn  ${className}`}
   >
-    Mint your first!
+    <FormattedMessage id="hero.mintButton" defaultMessage="Mint your first!" />
   </a>
 );
 

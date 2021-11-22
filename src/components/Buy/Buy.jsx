@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { FormattedMessage } from 'react-intl';
 import BuyMoreBtn from '../BuyMoreBtn';
 import BuyMore from './BuyMore';
 import GenerateSoldOut from '../Generate/GenerateSoldOut';
@@ -9,6 +10,10 @@ const Buy = ({ soldOut }) => {
   const linkDrop = true;
   const { nftTransfer } = useTransfer();
 
+  const formattedText = (
+    <FormattedMessage id="buy.sendNftButton" defaultMessage="Send an NFT" />
+  );
+
   return (
     <div className="buy">
       <div className="buy__data">
@@ -17,7 +22,7 @@ const Buy = ({ soldOut }) => {
             <BuyMore />
             <BuyMore isLinkDrop={linkDrop} />
             <BuyMoreBtn
-              text="Send an NFT"
+              text={formattedText}
               className="buy__nft"
               onClick={nftTransfer}
             />

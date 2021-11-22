@@ -1,6 +1,7 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { FormattedMessage } from 'react-intl';
 import Buy from '../Buy/Buy';
 import GenerateSoldOut from '../Generate/GenerateSoldOut';
 import ShareSocialLinks from '../ShareSocialLinks';
@@ -14,14 +15,24 @@ const NoNfts = ({ soldOut }) => {
         <div className="no-nfts__data-top">
           <div className="no-nfts__information">
             <p className="no-nfts__title">
-              You don&#39;t have any{' '}
+              <FormattedMessage
+                id="linkDrop.titleSoldOutWhite"
+                defaultMessage="You don't have any"
+              />{' '}
               <span className="no-nfts__text-purpure">
                 {pathname === '/link-drop' ? 'LinkDrops' : 'NFTs'}
               </span>{' '}
-              yet
+              <FormattedMessage
+                id="linkDrop.titleSoldOutEnd"
+                defaultMessage="yet"
+              />
             </p>
             <p className="no-nfts__text">
-              Buy your first <span className="no-nfts__text-purpure">NFT</span>
+              <FormattedMessage
+                id="linkDrop.buyNftWhite"
+                defaultMessage="uy your first "
+              />
+              <span className="no-nfts__text-purpure">NFT</span>
             </p>
             <ShareSocialLinks className="no-nfts__links" color="purpure" />
           </div>

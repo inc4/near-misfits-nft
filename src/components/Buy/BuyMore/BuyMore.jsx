@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
 import React, { memo } from 'react';
+import { FormattedMessage } from 'react-intl';
 import PropTypes from 'prop-types';
 import BuyMoreBtn from '../../BuyMoreBtn';
 import useBuy from '../../../hooks/useBuy';
@@ -25,14 +26,25 @@ const BuyMore = ({ isLinkDrop }) => {
 
         {showMessage && (
           <div className="buy-more__message">
-            {isLinkDrop
-              ? 'select 1 link drop'
-              : `select ${app.oneCount} or ${app.manyCount} misfits `}
+            {isLinkDrop ? (
+              <FormattedMessage
+                id="buy.giftLinkMessage"
+                defaultMessage="select 1 link drop"
+              />
+            ) : (
+              <FormattedMessage
+                id="buy.buyMoreMessage"
+                defaultMessage="select 1 or 10 misfits"
+              />
+            )}
           </div>
         )}
         {isLinkDrop && (
           <p className="buy-more__top-text">
-            Share a mystery NFT for your friend
+            <FormattedMessage
+              id="buy.giftLinkText"
+              defaultMessage="Share a mystery NFT for your friend"
+            />
           </p>
         )}
       </div>

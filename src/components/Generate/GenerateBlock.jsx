@@ -1,4 +1,5 @@
 import React, { memo } from 'react';
+import { FormattedMessage } from 'react-intl';
 import BuyMoreBtn from '../BuyMoreBtn';
 import GenerateCountBtn from '../GenerateCountBtn';
 import useBuy from '../../hooks/useBuy';
@@ -30,6 +31,10 @@ const GenerateBlock = () => {
     }
   };
 
+  const textGenerate = (
+    <FormattedMessage id="generate.generateButton" defaultMessage="Generate" />
+  );
+
   return (
     <div id="generate-block" className="generate-block">
       <div className="generate-block__line"></div>
@@ -45,7 +50,7 @@ const GenerateBlock = () => {
       </div>
       <BuyMoreBtn
         onClick={handleClick}
-        text="Generate"
+        text={textGenerate}
         className="generate-block__button"
       />
       <GenerateCountBtn
@@ -61,7 +66,10 @@ const GenerateBlock = () => {
       />
       {showMessage && (
         <div className="generate-block__message">
-          select {app.oneCount} or {app.manyCount} misfits
+          <FormattedMessage
+            id="buy.buyMoreMessage"
+            defaultMessage="select 1 or 10 misfits"
+          />
         </div>
       )}
     </div>

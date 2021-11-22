@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { FormattedMessage } from 'react-intl';
 
 const SaveBtn = ({ onClick }) => {
   const [animation, setAnimation] = useState('');
@@ -11,8 +12,10 @@ const SaveBtn = ({ onClick }) => {
   };
   return (
     <button className="save-btn" type="button" onClick={handleClick}>
-      Save
-      <p className={`save-btn__saved ${animation}`}>saved</p>
+      <FormattedMessage id="linkDrop.saveButton" defaultMessage="Save" />
+      <p className={`save-btn__saved ${animation}`}>
+        <FormattedMessage id="linkDrop.saveText" defaultMessage="save" />
+      </p>
     </button>
   );
 };

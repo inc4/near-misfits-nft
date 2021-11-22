@@ -1,6 +1,7 @@
 import React, { useEffect, useContext, useState } from 'react';
 import { useHistory } from 'react-router';
 import { ReactSVG } from 'react-svg';
+import { FormattedMessage } from 'react-intl';
 import { appStore } from '../../state/app';
 import ShareSocialLinks from '../../components/ShareSocialLinks';
 import Buy from '../../components/Buy';
@@ -64,14 +65,38 @@ const LinkDrop = () => {
 
         <div className="link-drop__data">
           <header className="link-drop__header">
-            <span className="link-drop__header-purpure">Share</span> a mystery{' '}
-            <span className="link-drop__header-purpure">NFT</span> with your
-            friend
+            <span className="link-drop__header-purpure">
+              <FormattedMessage
+                id="linkDrop.titlePurpure"
+                defaultMessage="Share"
+              />
+            </span>{' '}
+            <FormattedMessage
+              id="linkDrop.titleBlack"
+              defaultMessage="a mystery"
+            />{' '}
+            <span className="link-drop__header-purpure"> NFT </span>{' '}
+            <FormattedMessage
+              id="linkDrop.titleBlackEnd"
+              defaultMessage="with your friend"
+            />
           </header>
 
           <div className="link-drop__center">
             <div>
               <ul className="link-drop__list">
+                <p className="link-drop__shareble-links">
+                  <FormattedMessage
+                    id="linkDrop.sharebleLinks"
+                    defaultMessage="Shareable links"
+                  />
+                </p>
+                <p className="link-drop__shareble-links-text">
+                  <FormattedMessage
+                    id="linkDrop.sharebleText"
+                    defaultMessage="Who did I share this link with?"
+                  />
+                </p>
                 {linkDropArray.map((item, index) => (
                   <li className="link-drop__item" key={item.id}>
                     <ShareableCircle
