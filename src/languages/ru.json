@@ -4,5 +4,12 @@
   "navigation.generate": "Сгенерировать",
   "navigation.faq": "FAQ",
   "navigation.myNfts": "Мои NFTs",
-  "navigation.linkDrop": "LinkDrop"
+  "navigation.linkDrop": "LinkDrop",
+  "navigation.connectWallet": "Подключить кошелек",
+  "navigation.connectWalletLogOut": "Выйти",
+  "hero.titleBlack": "Первый флиит",
+  "hero.titlePurpure": "Метавселенной",
+  "hero.textGreenTop": "Подключайся к комьюнити  of NEAR early adopters and BUIDLers.",
+  "hero.textGreenBottom": "Misfits Будут скоро",
+  "hero.mintButton": "Получи свой первый NFT!"
 }
