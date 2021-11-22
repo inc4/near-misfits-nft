@@ -2,6 +2,7 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useLocation, useHistory } from 'react-router';
+import Internationalize from '../Internationalize';
 import Header from '../Header';
 import Footer from '../Footer';
 
@@ -24,11 +25,11 @@ const Layout = ({ children }) => {
   }, [hash]);
 
   return (
-    <>
+    <Internationalize>
       <Header />
       {children}
       <Footer />
-    </>
+    </Internationalize>
   );
 };
 
