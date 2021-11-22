@@ -109,8 +109,8 @@ export const initNear =
         await Promise.all(
           linkDropArray.map(async (link) => {
             try {
-              const key = getPublicKey(link.link).toString();
-              await contract.get_key_balance({ key });
+              const public_key = getPublicKey(link.link).toString();
+              link.isUsed = !(await contract.check_key({ public_key }));
             } catch (err) {
               if (err.message.includes('Key is missing')) {
                 link.isUsed = true;
