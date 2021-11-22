@@ -20,7 +20,6 @@ const NftItemInfo = ({ className, item, urlIpfs }) => {
   }, []);
 
   useEffect(() => {
-    console.log('show:', item?.title);
     const { right } = nftInfo?.current?.getBoundingClientRect();
 
     if (right > window.innerWidth) {
