@@ -10,7 +10,7 @@ import wechat from '../../assets/images/share-social/wechat.svg';
 import telegram from '../../assets/images/share-social/telegram.svg';
 import discord from '../../assets/images/share-social/discord.svg';
 
-const ShareSocialLinks = ({ className, color, text, link }) => {
+const ShareSocialLinks = ({ className, color, text, link, onClick }) => {
   const colorIcon =
     color === 'purpure'
       ? 'share-social-links__purpure'
@@ -43,6 +43,7 @@ const ShareSocialLinks = ({ className, color, text, link }) => {
           target="_blank"
           rel="noopener noreferrer"
           data-social="instagram"
+          onClick={onClick}
         >
           <ReactSVG className={colorIcon} src={instagram} />
         </a>
@@ -50,7 +51,7 @@ const ShareSocialLinks = ({ className, color, text, link }) => {
 
       <li>
         <a
-          href="mailto:test@gmail.com"
+          href={`mailto:?body=${text}   ${link}`}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -72,6 +73,7 @@ const ShareSocialLinks = ({ className, color, text, link }) => {
           target="_blank"
           rel="noopener noreferrer"
           data-social="wechat"
+          onClick={onClick}
         >
           <ReactSVG className={colorIcon} src={wechat} />
         </a>
@@ -91,6 +93,7 @@ const ShareSocialLinks = ({ className, color, text, link }) => {
           target="_blank"
           rel="noopener noreferrer"
           data-social="discord"
+          onClick={onClick}
         >
           <ReactSVG className={colorIcon} src={discord} />
         </a>
@@ -104,6 +107,7 @@ ShareSocialLinks.propTypes = {
   color: PropTypes.string,
   text: PropTypes.string,
   link: PropTypes.string,
+  onClick: PropTypes.func,
 };
 
 ShareSocialLinks.defaultProps = {
@@ -111,5 +115,6 @@ ShareSocialLinks.defaultProps = {
   color: 'blue',
   text: '',
   link: '',
+  onClick: () => {},
 };
 export default ShareSocialLinks;
