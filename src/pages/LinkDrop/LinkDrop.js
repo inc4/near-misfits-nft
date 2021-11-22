@@ -10,15 +10,18 @@ import ShareableLink from './ShareableLink';
 import ShareableInput from './ShareableInput';
 import ShareableCircle from './ShareableCircle';
 import SaveBtn from './SaveBtn/SaveBtn';
+import useCopyToClipboard from '../../hooks/useCopyToClipboard';
 
 const LinkDrop = () => {
   const history = useHistory();
 
-  const { state } = useContext(appStore);
+  const { state, update } = useContext(appStore);
   const { app, account } = state;
 
-  const [linkDropArray, setLinkDropArray] = useState([]);
+  const [linkDropArray, setLinkDropArray] = useState([...app.linkDropArray]);
   const [activeIndex, setActiveIndex] = useState(0);
+
+  const { handleCopy } = useCopyToClipboard();
 
   useEffect(() => {
     if (app.linkDropArray.length) {
@@ -32,29 +35,41 @@ const LinkDrop = () => {
     }
   });
 
-  const handleChange = (e) => {
+  const handleBlur = (e) => {
     const text = e.target.value;
     const dataIndex = +e.target.dataset.index;
 
-    setLinkDropArray(
-      linkDropArray.map((item, index) =>
-        dataIndex === index ? { ...item, text } : item,
-      ),
+    // update text for input
+    const updatedLinkDropArray = linkDropArray.map((item, index) =>
+      dataIndex === index ? { ...item, text } : item,
     );
-  };
 
-  const handleCircleClick = (index) => {
-    setActiveIndex(index);
-  };
+    // update in state
+    setLinkDropArray(updatedLinkDropArray);
 
-  const handleSaveBtn = () => {
+    // update text in global state
+    update('app.linkDropArray', [...updatedLinkDropArray]);
+
+    // update in local storage for user
     let testLinkDropArray = JSON.parse(
       localStorage.getItem('linkDropArray'),
-    ).filter(({ accountId }) => accountId !== account.accountId);
+    ).filter(({ accountId }) => accountId !== account?.accountId);
 
     testLinkDropArray = [...testLinkDropArray, ...linkDropArray];
 
     localStorage.setItem('linkDropArray', JSON.stringify(testLinkDropArray));
+  };
+
+  const handleCircleClick = (index) => setActiveIndex(index);
+
+  // copy to clipboard when share social links (instagram/wechat/descord)
+
+  const handleShareSocialLinks = () => {
+    const activeText = linkDropArray[activeIndex]?.text;
+    const activeLink = linkDropArray[activeIndex]?.link;
+
+    const copyText = `${activeText}  ${activeLink}`;
+    handleCopy(copyText);
   };
 
   return linkDropArray.length ? (
@@ -84,14 +99,14 @@ const LinkDrop = () => {
                       <ShareableInput
                         text={item.text}
                         index={index}
-                        onChange={handleChange}
+                        onBlur={handleBlur}
                       />
                     </div>
                   </li>
                 ))}
               </ul>
               <div className="link-drop__save">
-                <SaveBtn onClick={handleSaveBtn} />
+                <SaveBtn linkDropArray={linkDropArray} />
               </div>
 
               <ShareSocialLinks
@@ -99,6 +114,7 @@ const LinkDrop = () => {
                 className="link-drop__share-links"
                 text={linkDropArray[activeIndex]?.text}
                 link={linkDropArray[activeIndex]?.link}
+                onClick={handleShareSocialLinks}
               />
             </div>
             <picture>
