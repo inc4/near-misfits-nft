@@ -12,8 +12,12 @@ const SaveBtn = ({ linkDropArray }) => {
   // create correct href for saving linkdrop into file
   const hrefSaveBtn = () => {
     let href = 'data:attachment/text,';
+
     const uri = linkDropArray
-      .map(({ link, text }) => `${text ? `${text} : ` : ''} \n${link}`)
+      .map(
+        ({ link, text }, index) =>
+          `${index}: ${text ? `${text} : ` : ''} \n${link}`,
+      )
       .join('\n\n\n');
     href += encodeURI(uri);
 
