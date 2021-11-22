@@ -47,6 +47,22 @@
     }
   }
 
+  &__shareble-links {
+    position: absolute;
+    top: -20px;
+    left: 35px;
+    font-size: 10px;
+    color: #3f4246;
+  }
+
+  &__shareble-links-text {
+    position: absolute;
+    top: -20px;
+    left: 355px;
+    font-size: 10px;
+    color: #3f4246;
+  }
+
   &__center {
     width: fit-content;
     display: flex;
@@ -59,24 +75,6 @@
     gap: 11px;
     margin-top: 30px;
     position: relative;
-
-    &::before {
-      content: 'Shareable links';
-      position: absolute;
-      top: -20px;
-      left: 35px;
-      font-size: 10px;
-      color: #3f4246;
-    }
-
-    &::after {
-      content: 'Who did I share this link with?';
-      position: absolute;
-      top: -20px;
-      left: 355px;
-      font-size: 10px;
-      color: #3f4246;
-    }
   }
 
   &__inputs {
