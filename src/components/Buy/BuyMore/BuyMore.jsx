@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import BuyMoreBtn from '../../BuyMoreBtn';

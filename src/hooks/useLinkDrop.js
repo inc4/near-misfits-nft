@@ -1,5 +1,4 @@
 /* eslint-disable no-unused-vars */
-/* eslint-disable no-console */
 import { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { generate as id } from 'shortid';
