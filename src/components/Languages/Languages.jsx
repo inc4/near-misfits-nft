@@ -6,8 +6,10 @@ const Languages = () => {
   const [value, setValue] = useState(state.app.locale);
 
   const handleChange = (e) => {
-    setValue(e.target.value);
-    update('app.locale', e.target.value);
+    const locale = e.target.value;
+    setValue(locale);
+    update('app.locale', locale);
+    localStorage.setItem('locale', locale);
   };
 
   return (

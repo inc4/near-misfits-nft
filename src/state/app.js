@@ -10,7 +10,7 @@ const initialState = {
     misfitsArray: [],
     linkDropArray: [],
     urlIpfs: '',
-    locale: navigator.language,
+    locale: localStorage.getItem('locale') || navigator.language,
   },
   near: {
     initialized: false,
