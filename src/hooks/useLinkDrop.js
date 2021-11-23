@@ -27,24 +27,16 @@ const useLinkDrop = () => {
     );
 
     const { linkDropArray } = app;
-    let anotherLinkDropsArray =
-      JSON.parse(localStorage.getItem('linkDropArray')) || [];
-
-    anotherLinkDropsArray = anotherLinkDropsArray.filter(
-      ({ accountId }) => accountId !== account.accountId,
-    );
 
     localStorage.setItem(
-      'linkDropArray',
+      `linkDropArray:${account.accountId}`,
       JSON.stringify([
-        ...anotherLinkDropsArray,
         ...linkDropArray,
         {
           link: url,
           text: '',
           id: id(),
           isUsed: false,
-          accountId: account.accountId,
         },
       ]),
     );

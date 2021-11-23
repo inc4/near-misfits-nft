@@ -63,17 +63,11 @@ export const initNear =
           2,
         );
 
-        const linkDropFromLocalStorage =
-          JSON.parse(localStorage.getItem('linkDropArray')) || [];
-        // take linkDropArray from Local Storage that not for current user;
-        const notCurrentUserLinkDropArray = linkDropFromLocalStorage.filter(
-          ({ accountId }) => accountId !== account.accountId,
-        );
-
-        // take lindDropArray from Local Storage for only that user that connect with near wallet ( filter by accountId )
-        let linkDropArray = linkDropFromLocalStorage.filter(
-          ({ accountId }) => accountId === account.accountId,
-        );
+        // take lindDropArray from Local Storage for only that user that connect with near wallet
+        let linkDropArray =
+          JSON.parse(
+            localStorage.getItem(`linkDropArray:${account.accountId}`),
+          ) || [];
 
         // take information about NFT tokens
         const contract = getContract(account, contractMethods);
@@ -108,15 +102,8 @@ export const initNear =
         // Updates link object if used or missing in contract
         await Promise.all(
           linkDropArray.map(async (link) => {
-            try {
-              const public_key = getPublicKey(link.link).toString();
-              link.isUsed = !(await contract.check_key({ public_key }));
-            } catch (err) {
-              if (err.message.includes('Key is missing')) {
-                link.isUsed = true;
-              }
-            }
-            return link;
+            const public_key = getPublicKey(link.link).toString();
+            link.isUsed = !(await contract.check_key({ public_key }));
           }),
         );
 
@@ -125,11 +112,10 @@ export const initNear =
 
         // update LocalStorage
         localStorage.setItem(
-          'linkDropArray',
-          JSON.stringify([...notCurrentUserLinkDropArray, ...linkDropArray]),
+          `linkDropArray:${account.accountId}`,
+          JSON.stringify([...linkDropArray]),
         );
 
-        // state.app.linkDropArray = links.filter(link => !link.isUsed);
         const app = { ...state.app, misfitsArray, urlIpfs, linkDropArray };
 
         await update('', { app });
