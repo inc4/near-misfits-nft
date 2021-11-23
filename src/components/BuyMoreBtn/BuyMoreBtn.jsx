@@ -13,7 +13,7 @@ const BuyMoreBtn = ({ className, text, onClick }) => (
 
 BuyMoreBtn.propTypes = {
   className: PropTypes.string,
-  text: PropTypes.string,
+  text: PropTypes.object,
   onClick: PropTypes.func,
 };
 
