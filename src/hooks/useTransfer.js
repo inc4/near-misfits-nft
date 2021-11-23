@@ -11,7 +11,8 @@ const useTransfer = () => {
 
   const nftTransfer = async () => {
     /* eslint-disable-next-line */
-    const token_id = prompt('NFT ID');
+    const tokenId = Number(prompt('NFT ID'));
+    const token_id = tokenId.toString();
     /* eslint-disable-next-line */
     const receiver_id = prompt('Account to send to');
     if (
