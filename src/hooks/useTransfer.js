@@ -27,6 +27,13 @@ const useTransfer = () => {
       return;
     }
 
+    if (receiver_id === account.accountId) {
+      alert(
+        `You cann't send NFT to yourself.\nTry sending to another account.`,
+      );
+      return;
+    }
+
     const token_id = tokenId.toString();
 
     await contract.nft_transfer({
