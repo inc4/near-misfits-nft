@@ -10,7 +10,7 @@ const useLinkDrop = () => {
   const { contract, account, app, price } = state;
 
   const walletUrl = (contractId, key, url) =>
-    `https://wallet.testnet.near.org/linkdrop/${contractId}/${key}?redirectUrl=${url}/my-nfts`;
+    `https://wallet.near.org/linkdrop/${contractId}/${key}?redirectUrl=${url}/my-nfts`;
 
   const createLinkDrop = async () => {
     const keyPair = KeyPairEd25519.fromRandom();
