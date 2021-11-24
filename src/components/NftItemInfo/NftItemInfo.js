@@ -1,23 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { ReactSVG } from 'react-svg';
 import rarity from '../../assets/images/rarity-common.svg';
 
-const NftItemInfo = ({ className, item, urlIpfs }) => {
+const NftItemInfo = ({ className, item, urlIpfs, info }) => {
   const nftInfo = useRef();
-  const [info, setInfo] = useState({});
-
-  useEffect(async () => {
-    try {
-      const response = await fetch(`${urlIpfs}/${item.reference}`);
-      const data = await response.json();
-
-      setInfo(data);
-    } catch (e) {
-      // eslint-disable-next-line
-      console.log(e);
-    }
-  }, []);
 
   useEffect(() => {
     const { right } = nftInfo?.current?.getBoundingClientRect();
@@ -47,7 +34,8 @@ const NftItemInfo = ({ className, item, urlIpfs }) => {
         />
       </div>
       <div className="nft-item-info__stats">
-        <p>repo : {info?.repo || 'no data'}</p>
+        <p>kind : {info?.kind || 'no data'}</p>
+        <p>seed : {info?.seed || 'no data'}</p>
       </div>
     </div>
   );
@@ -57,5 +45,6 @@ NftItemInfo.propTypes = {
   className: PropTypes.string,
   item: PropTypes.object,
   urlIpfs: PropTypes.string,
+  info: PropTypes.object,
 };
 export default NftItemInfo;
