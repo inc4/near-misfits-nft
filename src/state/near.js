@@ -29,7 +29,7 @@ function getPublicKey(link) {
 
 export const initNear =
   () =>
-  async ({ update, getState, dispatch }) => {
+  async ({ update, getState }) => {
     try {
       const { near, wallet } = await getWallet();
 
@@ -57,83 +57,73 @@ export const initNear =
       let account;
       if (wallet.signedIn) {
         account = wallet.account();
+        const contract = getContract(account, contractMethods);
 
         wallet.balance = formatNearAmount(
           (await wallet.account().getAccountBalance()).available,
           2,
         );
 
-        const linkDropFromLocalStorage =
-          JSON.parse(localStorage.getItem('linkDropArray')) || [];
-        // take linkDropArray from Local Storage that not for current user;
-        const notCurrentUserLinkDropArray = linkDropFromLocalStorage.filter(
-          ({ accountId }) => accountId !== account.accountId,
-        );
+        await update('', { wallet, account, contract, price, near });
 
-        // take lindDropArray from Local Storage for only that user that connect with near wallet ( filter by accountId )
-        let linkDropArray = linkDropFromLocalStorage.filter(
-          ({ accountId }) => accountId === account.accountId,
-        );
+        // take lindDropArray from Local Storage for only that user that connect with near wallet
+        let linkDropArray =
+          JSON.parse(
+            localStorage.getItem(`linkDropArray:${account.accountId}`),
+          ) || [];
 
-        // take information about NFT tokens
-        const contract = getContract(account, contractMethods);
+        // tokensLeft - count of how many tokens left
+        // misfitsArray - NFTs of user
+        // {base_uri: urlIpfs} take url for IPFS where NFTs and data stored
+        // linkDropArray.map - check is somebody claim your link drop or not
 
-        console.log('tokens', await contract.tokens_left());
-        console.log(
-          'nft_supply_for_owner',
-          await contract.nft_supply_for_owner({
+        const [
+          tokensLeft,
+          nftTotalSupply,
+          misfitsArray,
+          { base_uri: urlIpfs },
+        ] = await Promise.all([
+          contract.tokens_left(),
+          contract.nft_total_supply(),
+          contract.nft_tokens_for_owner({
             account_id: account.accountId,
           }),
-        );
-        console.log(
-          'nft_tokens_for_owner',
-          await contract.nft_tokens_for_owner({
-            account_id: account.accountId,
+          contract.nft_metadata(),
+          ...linkDropArray.map(async (link) => {
+            const public_key = getPublicKey(link.link).toString();
+            link.isUsed = !(await contract.check_key({ public_key }));
           }),
-        );
-        console.log('nft_total_supply', await contract.nft_total_supply());
+        ]);
 
-        await update('', { near, wallet, account, contract, price });
-
-        const misfitsArray = await contract.nft_tokens_for_owner({
-          account_id: account.accountId,
-        });
-
-        // take url for IPFS where data stored
-        const { base_uri: urlIpfs } = await contract.nft_metadata();
-
-        // update state with misfits and url for IPFS
-        const state = getState();
-
-        // Updates link object if used or missing in contract
-        await Promise.all(
-          linkDropArray.map(async (link) => {
-            try {
-              const public_key = getPublicKey(link.link).toString();
-              link.isUsed = !(await contract.check_key({ public_key }));
-            } catch (err) {
-              if (err.message.includes('Key is missing')) {
-                link.isUsed = true;
-              }
-            }
-            return link;
-          }),
-        );
+        // if all tokens buy soldOut will be true
+        const soldOut = tokensLeft === 0;
 
         // filter linkDrops that was used
         linkDropArray = linkDropArray.filter(({ isUsed }) => !isUsed);
 
         // update LocalStorage
         localStorage.setItem(
-          'linkDropArray',
-          JSON.stringify([...notCurrentUserLinkDropArray, ...linkDropArray]),
+          `linkDropArray:${account.accountId}`,
+          JSON.stringify([...linkDropArray]),
         );
 
-        // state.app.linkDropArray = links.filter(link => !link.isUsed);
-        const app = { ...state.app, misfitsArray, urlIpfs, linkDropArray };
+        const state = getState();
+        const app = {
+          ...state.app,
+          misfitsArray,
+          urlIpfs,
+          linkDropArray,
+          soldOut,
+          tokensLeft,
+        };
 
         await update('', { app });
+
+        // Debugging start
+        console.log('tokens_left:', tokensLeft);
+        console.log('nft_total_supply', nftTotalSupply);
         console.log('state:', getState());
+        // Debugging end
 
         return;
       }

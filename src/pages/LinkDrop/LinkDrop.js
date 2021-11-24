@@ -51,13 +51,10 @@ const LinkDrop = () => {
     update('app.linkDropArray', [...updatedLinkDropArray]);
 
     // update in local storage for user
-    let testLinkDropArray = JSON.parse(
-      localStorage.getItem('linkDropArray'),
-    ).filter(({ accountId }) => accountId !== account?.accountId);
-
-    testLinkDropArray = [...testLinkDropArray, ...updatedLinkDropArray];
-
-    localStorage.setItem('linkDropArray', JSON.stringify(testLinkDropArray));
+    localStorage.setItem(
+      `linkDropArray:${account.accountId}`,
+      JSON.stringify([...updatedLinkDropArray]),
+    );
   };
 
   const handleCircleClick = (index) => setActiveIndex(index);

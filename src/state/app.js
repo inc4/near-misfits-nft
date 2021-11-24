@@ -10,6 +10,7 @@ const initialState = {
     misfitsArray: [],
     linkDropArray: [],
     urlIpfs: '',
+    tokensLeft: undefined,
   },
   near: {
     initialized: false,
