@@ -64,7 +64,7 @@ export const getPrice = async (near) => {
     discountFormat,
     tenTokenCost,
     oneTokenCost,
-    costLinkDrop: formatNearAmount(costLinkDrop),
+    costLinkDrop: costLinkDrop,
   };
 
   return price;
