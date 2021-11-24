@@ -12,7 +12,7 @@ const useMintNft = () => {
     if (count === 1) {
       contract.nft_mint_one({
         args: {},
-        gas: GAS,
+        gas: '50000000000000',
         amount: price.oneTokenCost,
         callbackUrl,
       });

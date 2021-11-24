@@ -7,7 +7,7 @@ export default function getConfig() {
     walletUrl: 'https://wallet.testnet.near.org',
     helperUrl: 'https://helper.testnet.near.org',
     contractName,
-    GAS: '300000000000000',
+    GAS: '200000000000000',
     DEFAULT_NEW_ACCOUNT_AMOUNT: '5',
     contractMethods: {
       changeMethods: [
