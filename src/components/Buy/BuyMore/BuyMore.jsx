@@ -17,16 +17,26 @@ const BuyMore = ({ isLinkDrop }) => {
 
   const { price, app } = state;
 
+  const moreThenManyCount = app.tokensLeft >= app.manyCount;
+  const textForMessage = moreThenManyCount
+    ? `select ${app.oneCount} or ${app.manyCount} misfits`
+    : `select ${app.oneCount} misfit`;
+
   return (
     <div className="buy-more">
       <div className="buy-more__top">
         <BuyMoreBtn text={text} onClick={handleClick} />
 
         {showMessage && (
-          <div className="buy-more__message">
-            {isLinkDrop
-              ? 'select 1 link drop'
-              : `select ${app.oneCount} or ${app.manyCount} misfits `}
+          <div
+            className="buy-more__message"
+            style={{
+              transform: `translateX(${
+                isLinkDrop || moreThenManyCount ? '0' : '-25px'
+              })`,
+            }}
+          >
+            {isLinkDrop ? 'select 1 link drop' : textForMessage}
           </div>
         )}
         {isLinkDrop && (
@@ -46,7 +56,8 @@ const BuyMore = ({ isLinkDrop }) => {
         />
       </div>
 
-      {!isLinkDrop && (
+      {/* Show this block only for NFT and only if tokens left more or equal manyCount ( 10 in our case ) */}
+      {!isLinkDrop && moreThenManyCount && (
         <div className="buy-more__bottom">
           <CountAndPrice
             activeCount={count}
