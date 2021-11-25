@@ -30,6 +30,11 @@ const GenerateBlock = () => {
     }
   };
 
+  const moreThenManyCount = app.tokensLeft >= app.manyCount;
+  const textForMessage = moreThenManyCount
+    ? `select ${app.oneCount} or ${app.manyCount} misfits`
+    : `select ${app.oneCount} misfit`;
+
   return (
     <div id="generate-block" className="generate-block">
       <div className="generate-block__line"></div>
@@ -54,14 +59,23 @@ const GenerateBlock = () => {
         isActive={count === app.oneCount}
       />
 
-      <GenerateCountBtn
-        count={app.manyCount}
-        onClick={() => handleNumberClick(app.manyCount)}
-        isActive={count === app.manyCount}
-      />
+      {/* Show this block only for NFT and only if tokens left more or equal manyCount ( 10 in our case ) */}
+      {moreThenManyCount && (
+        <GenerateCountBtn
+          count={app.manyCount}
+          onClick={() => handleNumberClick(app.manyCount)}
+          isActive={count === app.manyCount}
+        />
+      )}
+
       {showMessage && (
-        <div className="generate-block__message">
-          select {app.oneCount} or {app.manyCount} misfits
+        <div
+          className="generate-block__message"
+          style={{
+            transform: `translateX(${moreThenManyCount ? '0' : '30px'})`,
+          }}
+        >
+          {textForMessage}
         </div>
       )}
     </div>
