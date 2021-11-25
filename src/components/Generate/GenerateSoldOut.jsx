@@ -6,16 +6,16 @@ const GenerateSoldOut = ({ className }) => (
     <p className="generate-sold-out__text">Sold Out</p>
     <a
       className="generate-sold-out__link"
-      href="https://www.mintbase.io/"
+      href="https://paras.id/"
       target="_blank"
       rel="noopener noreferrer"
     >
-      <p>Buy on Mintbase</p>
+      <p>Buy on Paras</p>
       <picture>
-        <source srcSet="./images/generate-mintbase-2x.webp 2x, ./images/generate-mintbase.webp 1x" />
+        <source srcSet="./images/generate-paras-2x.webp 2x, ./images/generate-paras.webp 1x" />
         <img
-          src="./images/generate-mintbase.png"
-          alt="mintbase marketplace icon"
+          src="./images/generate-paras.png"
+          alt="paras marketplace icon"
           className="generate-sold-out__img"
         ></img>
       </picture>
