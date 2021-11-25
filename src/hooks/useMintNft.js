@@ -1,7 +1,6 @@
 /* eslint-disable no-alert */
 import { useContext } from 'react';
 import { appStore } from '../state/app';
-import { GAS } from '../state/near';
 
 const useMintNft = () => {
   const { state } = useContext(appStore);
@@ -19,7 +18,7 @@ const useMintNft = () => {
     } else {
       contract.nft_mint_many({
         args: { num: count },
-        gas: GAS,
+        gas: '230000000000000',
         amount: price.tenTokenCost,
         callbackUrl,
       });
