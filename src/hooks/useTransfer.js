@@ -16,7 +16,7 @@ const useTransfer = () => {
     const tokenId = Number(prompt('NFT ID'));
 
     /* eslint-disable-next-line */
-    const receiver_id = prompt('Account to send to');
+    const receiver_id = prompt('Account to send to').toLocaleLowerCase();
     if (
       tokenId === null ||
       tokenId === '' ||
