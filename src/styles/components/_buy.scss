@@ -27,6 +27,10 @@
 
   &__nft {
     margin-left: 20px;
+
+    @include for-phone {
+      margin-left: 0;
+    }
   }
 
   &__sold-out-wrapper {
