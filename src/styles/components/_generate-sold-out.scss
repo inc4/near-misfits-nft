@@ -28,14 +28,7 @@
     }
 
     @include for-phone {
-      padding: 14px 30px;
-    }
-
-    @include for-small-phone {
-      font-weight: 600;
-      font-size: 16px;
-
-      padding: 14px 20px;
+      margin-left: 0;
     }
   }
 
