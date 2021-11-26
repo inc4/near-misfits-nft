@@ -6,7 +6,11 @@ import socialTwitter from '../../assets/images/social-twitter.svg';
 
 const SocialLinks = ({ className }) => (
   <div className={`social-links ${className || ''}`}>
-    <a href="https://paras.id/" rel="noopener noreferrer" target="_blank">
+    <a
+      href="https://paras.id/search?q=misfits.tenk.near&sort=priceasc&pmin=.01&is_verified=true"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
       <picture>
         <source srcSet="./images/social-paras-2x.webp 2x, ./images/social-paras.webp 1x" />
         <img

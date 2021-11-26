@@ -18,7 +18,7 @@ const GenerateSoldOut = ({ className }) => {
       <p className="generate-sold-out__text">Sold Out</p>
       <a
         className="generate-sold-out__link"
-        href="https://paras.id/"
+        href="https://paras.id/search?q=misfits.tenk.near&sort=priceasc&pmin=.01&is_verified=true"
         target="_blank"
         rel="noopener noreferrer"
       >
