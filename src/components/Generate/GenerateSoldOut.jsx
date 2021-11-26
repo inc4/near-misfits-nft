@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import BuyMoreBtn from '../BuyMoreBtn';
+import { appStore } from '../../state/app';
 import useTransfer from '../../hooks/useTransfer';
+import BuyMoreBtn from '../BuyMoreBtn';
 
 const GenerateSoldOut = ({ className }) => {
+  const { state } = useContext(appStore);
+  const { account, app } = state;
+
   const { nftTransfer } = useTransfer();
+
+  const haveNft = app.misfitsArray.length;
+  const showSendNft = Boolean(account && haveNft);
 
   return (
     <div className={`generate-sold-out ${className || ''}`}>
@@ -25,11 +32,13 @@ const GenerateSoldOut = ({ className }) => {
           ></img>
         </picture>
       </a>
-      <BuyMoreBtn
-        text="Send an NFT"
-        className="buy__nft"
-        onClick={nftTransfer}
-      />
+      {showSendNft && (
+        <BuyMoreBtn
+          text="Send an NFT"
+          className="buy__nft"
+          onClick={nftTransfer}
+        />
+      )}
     </div>
   );
 };
