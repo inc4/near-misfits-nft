@@ -19,6 +19,8 @@
     color: $white;
     box-shadow: 0px 0px 30px $purpure-color;
     transition: all 0.3s ease-in-out;
+    min-width: 280px;
+    margin-left: 15px;
 
     &:hover {
       background-color: $purpure-color-hover;
