@@ -11,6 +11,7 @@ const initialState = {
     linkDropArray: [],
     urlIpfs: '',
     tokensLeft: undefined,
+    modalOpen: false,
   },
   near: {
     initialized: false,

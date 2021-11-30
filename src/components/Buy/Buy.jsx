@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
+import { appStore } from '../../state/app';
 import BuyMoreBtn from '../BuyMoreBtn';
 import BuyMore from './BuyMore';
 import GenerateSoldOut from '../Generate/GenerateSoldOut';
-import useTransfer from '../../hooks/useTransfer';
 
 const Buy = ({ soldOut }) => {
   const linkDrop = true;
-  const { nftTransfer } = useTransfer();
+
+  const { update } = useContext(appStore);
+
+  const modalOpen = () => update('app.modalOpen', true);
 
   return (
     <div className="buy">
@@ -19,7 +22,7 @@ const Buy = ({ soldOut }) => {
             <BuyMoreBtn
               text="Send an NFT"
               className="buy__nft"
-              onClick={nftTransfer}
+              onClick={modalOpen}
             />
           </>
         ) : (
