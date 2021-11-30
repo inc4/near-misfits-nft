@@ -19,6 +19,14 @@
     background: #262626;
     box-shadow: 0px 0px 30px #8c60bb;
     border-radius: 20px;
+
+    @include for-tablet {
+      width: 90%;
+    }
+
+    @include for-small-phone {
+      width: 95%;
+    }
   }
 
   &__nft-id {
@@ -49,6 +57,11 @@
     &:hover {
       box-shadow: 0px 0px 20px $purpure-color-hover;
     }
+
+    @include for-small-phone {
+      padding: 8px 10px;
+      min-width: 100px;
+    }
   }
 
   &__input {
@@ -63,6 +76,12 @@
     display: flex;
     gap: 32px;
     justify-content: flex-end;
+
+    @include for-small-phone {
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
   }
 
   &__send-btn {
@@ -79,6 +98,11 @@
     &:hover {
       background-color: $purpure-color-hover;
       box-shadow: 0px 0px 40px $purpure-color-hover;
+    }
+
+    @include for-small-phone {
+      padding: 8px 10px;
+      min-width: 100px;
     }
   }
 
