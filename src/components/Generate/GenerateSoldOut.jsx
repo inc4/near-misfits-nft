@@ -1,17 +1,16 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { appStore } from '../../state/app';
-import useTransfer from '../../hooks/useTransfer';
 import BuyMoreBtn from '../BuyMoreBtn';
 
 const GenerateSoldOut = ({ className }) => {
-  const { state } = useContext(appStore);
+  const { state, update } = useContext(appStore);
   const { account, app } = state;
-
-  const { nftTransfer } = useTransfer();
 
   const haveNft = app.misfitsArray.length;
   const showSendNft = Boolean(account && haveNft);
+
+  const modalOpen = () => update('app.modalOpen', true);
 
   return (
     <div className={`generate-sold-out ${className || ''}`}>
@@ -36,7 +35,7 @@ const GenerateSoldOut = ({ className }) => {
         <BuyMoreBtn
           text="Send an NFT"
           className="buy__nft"
-          onClick={nftTransfer}
+          onClick={modalOpen}
         />
       )}
     </div>
