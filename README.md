@@ -1,8 +1,28 @@
-## Available Scripts
+# Misfits NFT
 
-In the project directory, you can run:
+A minting dApp for the Misfits NFT collection
+on NEAR Protocol.
 
-### `yarn start`
+[🚀 Live Demo](https://misfit.netlify.app)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Features
+- NEAR wallet integration
+- NFT minting interface
+- Collection browsing
+- On-chain metadata
+
+## Tech Stack
+- React
+- NEAR SDK (near-api-js)
+- JavaScript
+- Netlify
+
+## Getting Started
+git clone https://github.com/inc4/near-misfits-nft.git
+cd near-misfits-nft
+yarn install
+yarn start
+
+
+---
+Built by [INC4](https://inc4.net) — House of Tech for AI & Web3
